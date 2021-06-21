@@ -1,0 +1,33 @@
+swagger: '2.0'
+info:
+  title: sgc-api
+  x-ibm-name: sgc-api
+  version: 1.0.0.0
+  description: >-
+   A API
+schemes:
+  - https
+basePath: /sgc/v1
+produces:
+  - application/json
+consumes:
+  - application/json
+tags:
+  - name: Cliente
+paths:
+  '/clientes':
+    get:
+      tags:
+        - Cliente
+      summary: Efetua a busca de todos os clientes existentes na base.
+      description: Serviço responsável pela busca de todos os clientes registrados na base.
+      responses:
+        '200':
+          description: Registros buscados com sucesso.
+          schema:
+            $ref: '#/definitions/ClienteDto'
+        '400':
+          description: >-
+            Possíveis erros de negócio ao efetuar a consulta.
+          schema:
+            $ref: '#/definitions/MensagensErro'
